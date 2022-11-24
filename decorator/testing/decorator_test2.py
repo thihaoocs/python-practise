@@ -1,14 +1,14 @@
 def myDecorator(function):
 
-    def wrapper():
+    def wrapper(*args, **kwargs):
         print("I am decorating your function!")
-        function()
+        result = function(*args, **kwargs)
+        return result
+
     return wrapper
 
-def hello_world():
-    print("Hello World!")
+@myDecorator
+def hello(person):
+    return f"Hello {person}!"
 
-# fun = myDecorator(hello_world)
-# fun()
-
-myDecorator(hello_world)()
+print(hello('John'))
