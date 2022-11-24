@@ -1,5 +1,5 @@
+# Original Tank
 class Tank(object):
-    
     def get_damage(self):
         pass
 
@@ -9,7 +9,7 @@ class Tank(object):
     def get_upgraded_part(self):
         pass
 
-# Concrete class
+# Concrete Tank class
 class Original_tank(Tank):
     
     def get_damage(self):
@@ -21,6 +21,7 @@ class Original_tank(Tank):
     def get_upgraded_part(self):
         return 'Nothing'
 
+# Tank Decorator
 class Tank_Decorator(Tank):
 
     def __init__(self, decorated_tank):
@@ -34,6 +35,8 @@ class Tank_Decorator(Tank):
     
     def get_upgraded_part(self):
         return self.decorated_tank.get_upgraded_part()
+
+# Tank wrappers
 
 class ERA(Tank_Decorator):
 
