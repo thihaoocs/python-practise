@@ -11,7 +11,7 @@ class decorator_class(object):
 def display():
     print(' display function ran')
 
-# display = decorator_function(display)
+# display = decorator_class(display) === @decorator_class
 
 @decorator_class
 def display_info(name, age):

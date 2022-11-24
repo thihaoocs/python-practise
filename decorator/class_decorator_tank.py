@@ -11,7 +11,6 @@ class Tank(object):
 
 # Concrete Tank class
 class Original_tank(Tank):
-    
     def get_damage(self):
         return 100
     
@@ -23,7 +22,6 @@ class Original_tank(Tank):
 
 # Tank Decorator
 class Tank_Decorator(Tank):
-
     def __init__(self, decorated_tank):
         self.decorated_tank = decorated_tank
 
@@ -39,7 +37,6 @@ class Tank_Decorator(Tank):
 # Tank wrappers
 
 class ERA(Tank_Decorator):
-
     def __init__(self, decorated_tank):
         Tank_Decorator.__init__(self,decorated_tank)
 
@@ -53,7 +50,6 @@ class ERA(Tank_Decorator):
         return self.__class__.__name__
 
 class Main_Battery(Tank_Decorator):
-    
     def __init__(self, decorated_tank):
         Tank_Decorator.__init__(self, decorated_tank)
     
