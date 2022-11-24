@@ -9,6 +9,7 @@ def myDecorator(function):
 
 @myDecorator
 def hello(person):
+    print(f"Hello guy")
     return f"Hello {person}!"
 
 print(hello('John'))
