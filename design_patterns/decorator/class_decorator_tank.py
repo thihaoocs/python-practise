@@ -1,4 +1,4 @@
-# Original Tank
+# Abstract Class
 class Tank(object):
     def get_damage(self):
         pass
@@ -7,7 +7,7 @@ class Tank(object):
         pass
 
     def get_upgraded_part(self):
-        pass
+        return 'Nothing'
 
 # Concrete Tank class
 class Original_tank(Tank):
@@ -17,8 +17,6 @@ class Original_tank(Tank):
     def get_strength(self):
         return 100
 
-    def get_upgraded_part(self):
-        return 'Nothing'
 
 # Tank Decorator
 class Tank_Decorator(Tank):
@@ -35,13 +33,9 @@ class Tank_Decorator(Tank):
         return self.decorated_tank.get_upgraded_part()
 
 # Tank wrappers
-
 class ERA(Tank_Decorator):
     def __init__(self, decorated_tank):
         Tank_Decorator.__init__(self,decorated_tank)
-
-    def get_damage(self):
-        return self.decorated_tank.get_damage()
     
     def get_strength(self):
         return self.decorated_tank.get_strength() + 20
@@ -55,9 +49,6 @@ class Main_Battery(Tank_Decorator):
     
     def get_damage(self):
         return self.decorated_tank.get_damage() + 35
-
-    def get_strength(self):
-        return self.decorated_tank.get_strength()
 
     def get_upgraded_part(self):
         return self.__class__.__name__
